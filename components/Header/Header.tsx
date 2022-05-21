@@ -121,6 +121,9 @@ export default function Header({openSideBar}:Props){
                                 </button>
                             </Row>
                         </div>
+                        <Link href='/'>
+                            <a className={style['btn-donate']}><span>Пожертвовать</span></a>
+                        </Link>
 
                         <div className={`d-lg-block d-none align-items-center col-lg-9 ${style['categories-main-block']}`} style={{marginLeft: '30px'}}>
                             <div className="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
@@ -134,9 +137,7 @@ export default function Header({openSideBar}:Props){
                                 </ul>
 
                                 <Languages />
-                                <Link href='/'>
-                                    <a className={style['btn-donate']}><span>Пожертвовать</span></a>
-                                </Link>
+
 
                             </div>
                         </div>
