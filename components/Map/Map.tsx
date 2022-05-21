@@ -11,7 +11,6 @@ function MapComponent(props:any){
                 zoom={14}
                 initialCenter={center}
                 className='position-relative'
-
             >
                 {/*@ts-ignore*/}
                 <Marker position={center} text='Global Solutions' />
