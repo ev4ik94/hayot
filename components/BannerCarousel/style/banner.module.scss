@@ -1,0 +1,36 @@
+
+
+.carousel-slick-container{
+  .carousel-item{
+    height: 500px;
+    position: relative;
+    @media (max-width: 991px){
+      height: 350px;
+    }
+    & img{
+      object-fit: cover!important;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .banner-text{
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    padding: 15px;
+    h1{
+      color: #fff;
+      font-weight: 700;
+
+    }
+
+    p{
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.2rem;
+      @media (max-width: 991px){
+        font-size: 1rem;
+      }
+    }
+  }
+}

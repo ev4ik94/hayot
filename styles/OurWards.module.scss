@@ -1,0 +1,47 @@
+
+
+
+.slider-dogs{
+  height: 600px;
+  .slick-list, .slick-track{
+    height: 100%;
+  }
+}
+
+.description-dog{
+  background: #F1F1F1;
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+
+  .classification-dog{
+    margin-top: 25px;
+    p{
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+      color: #F37500;
+    }
+  }
+
+  .content-description{
+    margin-top: 25px;
+    p{
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.btn-contact-show{
+  background: #F37500;
+  color: #fff;
+  border-radius: 60px;
+  padding: 20px 40px;
+  border: none;
+  outline: none;
+  margin: 20px auto;
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+}

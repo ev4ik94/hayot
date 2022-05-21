@@ -1,0 +1,52 @@
+.footer-contain{
+  background: #000;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+
+
+  p, a{
+    color: #fff;
+  }
+
+  & > div{
+    & > div:nth-child(1){
+      & p:last-child{
+        span{
+          margin-right: 10px;
+
+          svg{
+            width: 12px;
+
+            & path{
+              fill: #289800;
+            }
+          }
+        }
+      }
+    }
+    & > div:nth-child(2){
+      @media (max-width: 991px){
+        & > div  >div:last-child{
+          padding-top: 20px;
+        }
+      }
+      & p:last-child{
+        color:#F37500;
+      }
+    }
+
+    & > div:last-child{
+      padding-left: 80px;
+      @media (max-width: 991px){
+        padding-left: 0;
+      }
+      & > a {
+        border: 1px solid #fff;
+        padding: 7px 10px;
+        border-radius: 8px;
+
+      }
+    }
+  }
+}
