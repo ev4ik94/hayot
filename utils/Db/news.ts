@@ -21,7 +21,7 @@ export const News:INews[] = [
         },
         images: [
             {
-                src: './banners/56-min.jpg'
+                src: 'https://www.hayotislife.com/images/21.jpg'
             }
         ],
         createdAt: '11 июля'
@@ -45,7 +45,7 @@ export const News:INews[] = [
         },
         images: [
             {
-                src: './banners/56-min.jpg'
+                src: 'https://www.hayotislife.com/images/19.jpg'
             }
         ],
         createdAt: '11 июля'
@@ -69,7 +69,7 @@ export const News:INews[] = [
         },
         images: [
             {
-                src: './banners/56-min.jpg'
+                src: 'https://www.hayotislife.com/images/23.jpg'
             }
         ],
         createdAt: '11 июля'

@@ -14,8 +14,8 @@ export const promotion:IPromotion[] = [
             en: 'Спасаем, лечим, содержим, пристраиваем животных, руководствуясь принципом No Kill (без эвтаназии)'
         },
         image: {
-            original: '/banners/hero-img 1.jpg',
-            thumbnail: '/banners/hero-img 1-min.jpg'
+            original: 'https://www.hayotislife.com/images/20.jpg',
+            thumbnail: 'https://www.hayotislife.com/images/20.jpg'
         }
     },
     {
@@ -30,8 +30,8 @@ export const promotion:IPromotion[] = [
             en: 'Спасаем, лечим, содержим, пристраиваем животных, руководствуясь принципом No Kill (без эвтаназии)'
         },
         image: {
-            original: '/banners/56.jpg',
-            thumbnail: '/banners/56-min.jpg'
+            original: 'https://www.hayotislife.com/images/3-1-7975-800.jpg',
+            thumbnail: 'https://www.hayotislife.com/images/3-1-7975-800.jpg'
         }
     }
 ]

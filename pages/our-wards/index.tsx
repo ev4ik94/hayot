@@ -24,6 +24,7 @@ import {CaretDownOutlined} from "@ant-design/icons";
 import {ArrowIcon} from "../../assets/Icons/icons-pack";
 import Languages from "../../components/Languages/Languages";
 import {Categories} from "../../utils/Db/categories";
+import {Dogs} from '../../utils/Db/dogs'
 
 
 
@@ -42,14 +43,14 @@ export default function DogsList(){
     age_words['dogs age'] = t('dogs age')
     age_words['dogs age1'] = t('dogs age1')
 
-    const dataResponse = useInfiniteQuery(
-        ['dogs', {filters}],
-        ({pageParam = 1}) =>
-            DogsApi.getAll(pageParam,  null ,filters),
-        {
-            getNextPageParam: ({ data }) => data.current_page===data.last_page?undefined:data.current_page+1
-        }
-    );
+    // const dataResponse = useInfiniteQuery(
+    //     ['dogs', {filters}],
+    //     ({pageParam = 1}) =>
+    //         DogsApi.getAll(pageParam,  null ,filters),
+    //     {
+    //         getNextPageParam: ({ data }) => data.current_page===data.last_page?undefined:data.current_page+1
+    //     }
+    // );
 
     const filtersHandler = (type:string, value:string)=>{
         if(value==='all'){
@@ -78,12 +79,12 @@ export default function DogsList(){
 
 
 
-    const isLoading = dataResponse.isLoading
-    const error = dataResponse.error
-    const dogsArr:{pages:[], pageParams:[]}|any = dataResponse.data
-    const isFetching = dataResponse.isFetching
-    const fetchNextPage = dataResponse.fetchNextPage
-    const hasNextPage = dataResponse.hasNextPage
+    // const isLoading = dataResponse.isLoading
+    // const error = dataResponse.error
+    // const dogsArr:{pages:[], pageParams:[]}|any = dataResponse.data
+    // const isFetching = dataResponse.isFetching
+    // const fetchNextPage = dataResponse.fetchNextPage
+    // const hasNextPage = dataResponse.hasNextPage
 
 
 
@@ -157,17 +158,17 @@ export default function DogsList(){
         </Menu>
     );
 
-    if(isLoading){
-        return (<div className='preloader'>
-            <Spin size="large" tip="Loading..."/>
-        </div>)
-    }
+    // if(isLoading){
+    //     return (<div className='preloader'>
+    //         <Spin size="large" tip="Loading..."/>
+    //     </div>)
+    // }
+    //
+    // if(error){
+    //     return (<p>Error</p>)
+    // }
 
-    if(error){
-        return (<p>Error</p>)
-    }
 
-    console.log(dogsArr)
 
 
     return(
@@ -277,45 +278,30 @@ export default function DogsList(){
 
                     <Row gutter={[24,24]} className={style['dogs-list']}>
                         {
-                            Array.isArray(dogsArr?.pages)&&dogsArr.pages.length?(<>{
-                                (dogsArr.pages||[]).map((page:any)=>{
-                                    const data:IDogs[] = page?.data?.data||[]
-                                    if(data.length){
-                                        return(<>{
-                                            data.map((item,index)=>{
-                                                return(
-                                                    <Col key={index} lg={6} md={12} span={24}>
-                                                        <Link href={`/our-wards/${item.slug}`}>
-                                                            <a>
-                                                                <Card
-                                                                    hoverable
-                                                                    cover={<LazyLoadImage image={{
-                                                                        srcSet: item.gallery.length?item.gallery[0].thumbnail??'':'',
-                                                                        alt: item.name['ru'],
-                                                                        src: item.gallery.length?item.gallery[0].original??'':''
-                                                                    }}/>}
-                                                                >
-                                                                    <h5>{item.name[locale]}</h5>
-                                                                    <div>
-                                                                        <p>{RenderAge(item.age, age_words)}</p>
-                                                                        <p>{item.disposition[locale]}</p>
-                                                                    </div>
-                                                                </Card>
-                                                            </a>
-                                                        </Link>
-                                                    </Col>
-                                                )
-                                            })
-                                        }</>)
-                                    }
-
+                            Dogs.length?(<>{
+                                Dogs.map((item,index)=>{
                                     return(
-                                        <div className='no-data w-100 text-center' key={'1'}>
-                                            <h1>Поиск не дал результатов</h1>
-                                        </div>
+                                        <Col key={index} lg={6} md={12} span={24}>
+                                            <Link href={`/our-wards/${item.slug}`}>
+                                                <a>
+                                                    <Card
+                                                        hoverable
+                                                        cover={<LazyLoadImage image={{
+                                                            srcSet: item.gallery.length?item.gallery[0].thumbnail??'':'',
+                                                            alt: item.name['ru'],
+                                                            src: item.gallery.length?item.gallery[0].original??'':''
+                                                        }}/>}
+                                                    >
+                                                        <h5>{item.name[locale]}</h5>
+                                                        <div>
+                                                            <p>{RenderAge(item.age, age_words)}</p>
+                                                            <p>{item.disposition[locale]}</p>
+                                                        </div>
+                                                    </Card>
+                                                </a>
+                                            </Link>
+                                        </Col>
                                     )
-
-
                                 })
                             }</>):(<div className='no-data w-100 text-center'>
                                 <h1>Поиск не дал результатов</h1>

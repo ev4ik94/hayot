@@ -7,12 +7,14 @@ import Slider from 'react-slick'
 /*----Api----*/
 import {DogsApi} from "../../utils/api";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {Dogs} from "../../utils/Db/dogs";
 
 /*----Styles---*/
 import styles from '../../styles/OurWards.module.scss'
 import {LazyLoadImage} from "../../components/Preloaders/LazyLoadImage";
 import {age_words, RenderAge} from "../../utils/functions";
 import {useTranslation} from "next-i18next";
+import {IDogs} from "../../ts-types/main";
 
 const stylesD = `
     .slider-dogs{
@@ -81,7 +83,7 @@ export default function ViewSingle(props:any){
     const [showContact, setShowContact] = useState(false)
     const {slug} = router.query as { slug: string }
      const locale:string = router.locale || 'ru'
-    const {data} = props
+    const [data, setData] = useState<IDogs|null>(null)
     age_words['dogs age3'] = t('dogs age3')
     age_words['dogs age'] = t('dogs age')
     age_words['dogs age1'] = t('dogs age1')
@@ -97,46 +99,52 @@ export default function ViewSingle(props:any){
     }
 
     useEffect(()=>{
-       console.log(data)
+        setData(Dogs.find(item=>item.slug===slug)??null)
     }, [slug])
 
-    return(
-        <div>
-            <Slider {...settings} className='slider-dogs'>
-                {
-                    //@ts-ignore
-                    (data.gallery||[]).map(item=>{
-                        return(
-                            <div key={item.id}>
-                                <LazyLoadImage image={{
-                                    src: item.original??'',
-                                    srcSet: item.thumbnail??'',
-                                    alt: data.name[locale]
-                                }}/>
-                            </div>
-                        )
-                    })
-                }
-            </Slider>
-            <div className='container-lg'>
-                <div className={styles['description-dog']}>
-                    <h3>{data.title[locale]}</h3>
-                    <div className={styles['classification-dog']}>
-                        <p>Возраст: {RenderAge(data.age, age_words)}</p>
-                        <p>Вес: {data.weight}</p>
-                        <p>Рост: {data.height}</p>
-                        <p>Темперамент: {data.disposition[locale]}</p>
+    if(data){
+        return(
+            <div>
+                <Slider {...settings} className='slider-dogs'>
+                    {
+                        //@ts-ignore
+                        (data.gallery||[]).map((item, index)=>{
+                            return(
+                                <div key={index}>
+                                    <LazyLoadImage image={{
+                                        src: item.original??'',
+                                        srcSet: item.thumbnail??'',
+                                        alt: data.name[locale]
+                                    }}/>
+                                </div>
+                            )
+                        })
+                    }
+                </Slider>
+                <div className='container-lg'>
+                    <div className={styles['description-dog']}>
+                        <h3>{data.title[locale]}</h3>
+                        <div className={styles['classification-dog']}>
+                            <p>Возраст: {RenderAge(data.age, age_words)}</p>
+                            <p>Вес: {data.weight}</p>
+                            <p>Рост: {data.height}</p>
+                            <p>Темперамент: {data.disposition[locale]}</p>
+                        </div>
+                        <div className={styles['content-description']} dangerouslySetInnerHTML={{__html: data.description[locale]}}/>
                     </div>
-                    <div className={styles['content-description']} dangerouslySetInnerHTML={{__html: data.description[locale]}}/>
-                </div>
 
-                <button className={styles['btn-contact-show']} onClick={()=>setShowContact(true)}>Узнать контакты опекуна<br/>{
-                    showContact?'+998 93 555 55 55':'+998 XX XXX XX XX'
-                }</button>
+                    <button className={styles['btn-contact-show']} onClick={()=>setShowContact(true)}>Узнать контакты опекуна<br/>{
+                        showContact?'+998 93 555 55 55':'+998 XX XXX XX XX'
+                    }</button>
+                </div>
+                <style>{`${stylesD}`}</style>
             </div>
-            <style>{`${stylesD}`}</style>
-        </div>
-    )
+        )
+    }
+
+    return ''
+
+
 }
 
 
@@ -144,11 +152,10 @@ export default function ViewSingle(props:any){
 
 export async function getServerSideProps({locale, params}:{locale:string, params: any}) {
     const {slug} = params
-    const response = await DogsApi.getOne(slug);
+    // const response = await DogsApi.getOne(slug);
 
     return {
         props: {
-            ...response.data,
             ...(await serverSideTranslations(locale, ["common"])),
             fallback: "blocking"
         }

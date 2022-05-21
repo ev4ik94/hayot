@@ -193,7 +193,7 @@ const Home: NextPage = () => {
 
                                   return(
                                       <div className={!(index%2)?styles['wide']:styles['tall']} key={index} >
-                                          <Link href={`/adopted/${item.slug}`}>
+                                          <Link href={`/our-wards/${item.slug}`}>
                                               <a title={item.name[locale]}>
                                                   <img src={item.gallery.length?item.gallery[0].original:''} alt="adopted"/>
                                                   <div className={styles['adopted-stamp']}>
@@ -221,7 +221,7 @@ const Home: NextPage = () => {
                           })
                       }
                   </div>
-                  <Link href='/adopted'>
+                  <Link href='/'>
                       <a title={t('adopted button')} className={styles['button-adopted-view']}>{t('adopted button')}</a>
                   </Link>
               </div>

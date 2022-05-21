@@ -308,8 +308,8 @@ export const Dogs:IDogs[] = [
         },
         gallery: [
             {
-                original: './dogs/adopted03.png',
-                thumbnail: './dogs/adopted03.png'
+                original: 'https://xn--80aakvvy0c.uz/images/animal/9/kroki_02.jpg',
+                thumbnail: 'https://xn--80aakvvy0c.uz/images/animal/9/kroki_02.jpg'
             }
         ],
         video: [
@@ -348,8 +348,8 @@ export const Dogs:IDogs[] = [
         },
         gallery: [
             {
-                original: './dogs/adopted01.png',
-                thumbnail: './dogs/adopted01.png'
+                original: 'https://xn--80aakvvy0c.uz/images/animal/15/kolbasa_02.jpg',
+                thumbnail: 'https://xn--80aakvvy0c.uz/images/animal/15/kolbasa_02.jpg'
             }
         ],
         video: [
@@ -388,12 +388,8 @@ export const Dogs:IDogs[] = [
         },
         gallery: [
             {
-                original: './dogs/56.jpg',
-                thumbnail: './dogs/56.jpg'
-            },
-            {
-                original: './dogs/Jak-przebiega-ciąża-i-poród-u-psa-oa7ylv28nd5sq24wgnec3z1rn8d6oxs2un8x4cpn40.jpg',
-                thumbnail: './dogs/Jak-przebiega-ciąża-i-poród-u-psa-oa7ylv28nd5sq24wgnec3z1rn8d6oxs2un8x4cpn40.jpg'
+                original: 'https://www.hayotislife.com/images/jek-3.jpg',
+                thumbnail: 'https://www.hayotislife.com/images/jek-3.jpg'
             }
         ],
         video: [
@@ -432,8 +428,8 @@ export const Dogs:IDogs[] = [
         },
         gallery: [
             {
-                original: './dogs/01.png',
-                thumbnail: './dogs/01.png'
+                original: 'https://www.hayotislife.com/images/1-1-8-8418-800.jpg',
+                thumbnail: 'https://www.hayotislife.com/images/1-1-8-8418-800.jpg'
             }
         ],
         video: [
@@ -472,8 +468,8 @@ export const Dogs:IDogs[] = [
         },
         gallery: [
             {
-                original: './dogs/02.png',
-                thumbnail: './dogs/02.png'
+                original: 'https://www.hayotislife.com/images/1-1-12-8138-800.jpg',
+                thumbnail: 'https://www.hayotislife.com/images/1-1-12-8138-800.jpg'
             }
         ],
         video: [
@@ -512,8 +508,8 @@ export const Dogs:IDogs[] = [
         },
         gallery: [
             {
-                original: './dogs/picture_2345399.jpg',
-                thumbnail: './dogs/picture_2345399.jpg'
+                original: 'https://www.hayotislife.com/images/1-2-4-8153-800.jpg',
+                thumbnail: 'https://www.hayotislife.com/images/1-2-4-8153-800.jpg'
             }
         ],
         video: [
@@ -552,8 +548,8 @@ export const Dogs:IDogs[] = [
         },
         gallery: [
             {
-                original: './dogs/adopted01.png',
-                thumbnail: './dogs/adopted01.png'
+                original: 'https://www.hayotislife.com/images/1-2-12-7999-800.jpg',
+                thumbnail: 'https://www.hayotislife.com/images/1-2-12-7999-800.jpg'
             }
         ],
         video: [
@@ -592,8 +588,8 @@ export const Dogs:IDogs[] = [
         },
         gallery: [
             {
-                original: './dogs/adopted02.png',
-                thumbnail: './dogs/adopted02.png'
+                original: 'https://www.hayotislife.com/images/1-2-10-8427-800.jpg',
+                thumbnail: 'https://www.hayotislife.com/images/1-2-10-8427-800.jpg'
             }
         ],
         video: [
@@ -632,8 +628,8 @@ export const Dogs:IDogs[] = [
         },
         gallery: [
             {
-                original: './dogs/adopted03.png',
-                thumbnail: './dogs/adopted03.png'
+                original: 'https://www.hayotislife.com/images/jessika.jpg',
+                thumbnail: 'https://www.hayotislife.com/images/jessika.jpg'
             }
         ],
         video: [
@@ -672,8 +668,8 @@ export const Dogs:IDogs[] = [
         },
         gallery: [
             {
-                original: './dogs/adopted01.png',
-                thumbnail: './dogs/adopted01.png'
+                original: 'https://www.hayotislife.com/images/laki-1.jpg',
+                thumbnail: 'https://www.hayotislife.com/images/laki-1.jpg'
             }
         ],
         video: [
